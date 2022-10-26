@@ -1,0 +1,30 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    public float speed;
+    public GameObject gamelose;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        gamelose.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        float verticalInput = Input.GetAxis("Vertical");
+
+        transform.position = transform.position + new Vector3(0 , verticalInput * speed * Time.deltaTime, 0);
+
+      if(transform.position.y >= 6.5 || transform.position.y <= -5)
+        {
+            transform.position = new Vector3(-7.84f, 1f, 0.008284654f);
+        }
+
+    }
+}
