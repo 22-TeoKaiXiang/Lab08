@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GUIScript : MonoBehaviour
 {
-   public void onrestart()
+    
+
+    
+    public void onrestart()
     {
         SceneManager.LoadScene(0);
     }
+   
 }

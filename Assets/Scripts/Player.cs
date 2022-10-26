@@ -6,11 +6,13 @@ public class Player : MonoBehaviour
 {
     public float speed;
     public GameObject gamelose;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         gamelose.SetActive(false);
+        
         Time.timeScale = 1;
     }
 
@@ -22,10 +24,16 @@ public class Player : MonoBehaviour
 
         transform.position = transform.position + new Vector3(0 , verticalInput * speed * Time.deltaTime, 0);
 
-        if(transform.position.y >= 6.5 || transform.position.y <= -5)
+        if(transform.position.y >= 6.5)
         {
-            transform.position = new Vector3(-7.84f, 1f, 0.008284654f);
-        } 
+            transform.position = new Vector3(-7.84f, 6.5f, 0.008284654f);
+        }
+        if (transform.position.y <= -4)
+        {
+            transform.position = new Vector3(-7.84f, -4f, 0.008284654f);
+        }
+        
+        
 
     }
     
