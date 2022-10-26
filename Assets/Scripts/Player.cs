@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         gamelose.SetActive(false);
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -21,10 +22,19 @@ public class Player : MonoBehaviour
 
         transform.position = transform.position + new Vector3(0 , verticalInput * speed * Time.deltaTime, 0);
 
-      if(transform.position.y >= 6.5 || transform.position.y <= -5)
+        if(transform.position.y >= 6.5 || transform.position.y <= -5)
         {
             transform.position = new Vector3(-7.84f, 1f, 0.008284654f);
-        }
+        } 
 
+    }
+    
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Obstacle"))
+        {
+            gamelose.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }
